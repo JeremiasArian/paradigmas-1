@@ -74,7 +74,9 @@ public class ListaDeContactos {
                     imprimirMenu();
                     break;
                 case 2:
-
+                    mostrarContactos();
+                    imprimirMenu();
+                    break;
                 case 3:
 
                 case 4:
@@ -96,6 +98,17 @@ public class ListaDeContactos {
         contacto.add(telefono);
         contacto.add(email);
         return contacto;
+    }
+
+    private static void mostrarContactos(){
+        if (listaEnlazada.isEmpty()) {
+            System.out.println("No hay contactos");
+            return;
+        }
+        System.out.println("Lista de Contactos:");
+        for (List<String> contacto : listaEnlazada){
+            System.out.println(contacto.toString());
+        }
     }
 
     public static void main(String[] args){
