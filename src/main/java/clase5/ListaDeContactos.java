@@ -58,14 +58,14 @@ public class ListaDeContactos {
                     System.out.println("Ingresá el teléfono");
                     while(true) {
                         telefono=lector.nextLine();
-                        if(telefono.isBlank()) System.out.println("Nombre inválido. Reintentálo");
+                        if(telefono.isBlank()) System.out.println("Teléfono inválido. Reintentálo");
                         else break;
                     }
 
                     System.out.println("Ingresá el email");
                     while(true){
                         email =lector.nextLine();
-                        if(email.isBlank()) System.out.println("Nombre inválido. Reintentálo");
+                        if(email.isBlank()) System.out.println("Email inválido. Reintentálo");
                         else break;
                     }
 
