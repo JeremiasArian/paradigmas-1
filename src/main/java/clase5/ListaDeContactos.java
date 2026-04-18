@@ -78,7 +78,18 @@ public class ListaDeContactos {
                     imprimirMenu();
                     break;
                 case 3:
-
+                    System.out.println("Ingresá el nombre del contacto a buscar:");
+                    while(true){
+                        String nombreABuscar = lector.nextLine();
+                        if(nombreABuscar.isBlank()){
+                            System.out.println("Entrada inválida.");
+                        } else {
+                            buscarContacto(nombreABuscar);
+                            imprimirMenu();
+                            break;
+                        }
+                    }
+                    break;
                 case 4:
 
                 case 5:
@@ -108,6 +119,21 @@ public class ListaDeContactos {
         System.out.println("Lista de Contactos:");
         for (List<String> contacto : listaEnlazada){
             System.out.println(contacto.toString());
+        }
+    }
+
+    private static void buscarContacto(String nombre){
+        String nombreEncontrado = "";
+        for (List<String> contacto : listaEnlazada){
+            if(contacto.get(0).equals(nombre)){
+                nombreEncontrado=nombre;
+                System.out.println("///Datos de "+nombreEncontrado+"///");
+                System.out.println("Teléfono: "+contacto.get(1));
+                System.out.println("Email: "+ contacto.get(2));
+            }
+        }
+        if(nombreEncontrado.equals("")){
+            System.out.println("No se encontró el contacto");
         }
     }
 
