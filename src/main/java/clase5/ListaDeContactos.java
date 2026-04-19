@@ -46,13 +46,29 @@ public class ListaDeContactos {
                     String nombre = "";
                     String telefono = "";
                     String email = "";
+                    boolean contactoPresente = false;
 
                     System.out.println("Ingresá el nombre del contacto");
                     while(true){
                         nombre = lector.nextLine();
                         if(nombre.isBlank()) {
                             System.out.println("Nombre inválido. Reintentálo");
-                        } else break;
+                        } else {
+                            for(List<String> contacto : listaEnlazada){
+                                if(contacto.get(0).equals(nombre)){
+                                    contactoPresente = true;
+                                }
+                            }
+                            if (!contactoPresente) break;
+                            else {
+                                System.out.println("Este contacto ya esta agendado");
+                                break;
+                            }
+                        }
+                    }
+                    if(contactoPresente) {
+                        imprimirMenu();
+                        break;
                     }
 
                     System.out.println("Ingresá el teléfono");
