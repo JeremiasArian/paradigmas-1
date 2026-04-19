@@ -108,7 +108,18 @@ public class ListaDeContactos {
                     }
                     break;
                 case 4:
-
+                    System.out.println("Ingresá el nombre dle contacto a eliminar");
+                    while(true){
+                        String contactoAEliminar = lector.nextLine();
+                        if(contactoAEliminar.isBlank()){
+                            System.out.println("Entrada inválida");
+                        } else {
+                            eliminarContacto(contactoAEliminar);
+                            imprimirMenu();
+                            break;
+                        }
+                    }
+                    break;
                 case 5:
 
                 case 6:
@@ -154,6 +165,18 @@ public class ListaDeContactos {
         if(nombreEncontrado.equals("")){
             System.out.println("No se encontró el contacto");
         }
+    }
+
+    private static void eliminarContacto(String nombreDelContacto){
+        boolean presente = false;
+        for(List<String> contacto : listaEnlazada){
+            if(contacto.get(0).equals(nombreDelContacto)){
+                listaEnlazada.remove(contacto);
+                System.out.println("Se eliminó a "+nombreDelContacto);
+                presente = true;
+            }
+        }
+        if(!presente) System.out.println("No se encontró el contacto");
     }
 
     public static void main(String[] args){
