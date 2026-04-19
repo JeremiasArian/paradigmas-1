@@ -121,7 +121,21 @@ public class ListaDeContactos {
                     }
                     break;
                 case 5:
-
+                    if(listaEnlazada.isEmpty()){
+                        System.out.println("No hay contactos");
+                        imprimirMenu();
+                        break;
+                    }
+                    int cantidad = listaEnlazada.size();
+                    if(cantidad < 2){
+                        System.out.println("Hay 1 contacto");
+                        imprimirMenu();
+                        break;
+                    } else {
+                        System.out.println("Hay "+cantidad+" contactos");
+                        imprimirMenu();
+                        break;
+                    }
                 case 6:
                     System.out.println("Saliendo...");
                     continuar = false;
