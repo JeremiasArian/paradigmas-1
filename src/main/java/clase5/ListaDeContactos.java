@@ -32,7 +32,8 @@ public class ListaDeContactos {
     private static void manejarInput(){
         Scanner lector = new Scanner(System.in);
 
-        while(true){
+        boolean continuar = true;
+        while(continuar){
             int opcion;
             try{
                 opcion = Integer.parseInt(lector.nextLine());
@@ -111,7 +112,9 @@ public class ListaDeContactos {
                 case 5:
 
                 case 6:
-
+                    System.out.println("Saliendo...");
+                    continuar = false;
+                    break;
                 default:
                     System.out.println("Opción no reconocida");
                     break;
