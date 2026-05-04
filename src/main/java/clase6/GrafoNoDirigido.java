@@ -5,6 +5,20 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+/*
+Implementá la lista de adyacencia con la estructura de datos que provea tu lenguaje.
+Cada vértice debe tener asociada la lista de sus vecinos directos.
+Construí el siguiente grafo con las funciones anteriores y mostrá el resultado:
+Vértices: Buenos Aires, Córdoba, Rosario, Mendoza, Tucumán, Salta, Neuquén
+Aristas: Buenos Aires—Córdoba, Buenos Aires—Rosario, Córdoba—Rosario,
+Córdoba—Mendoza, Córdoba—Tucumán, Tucumán—Salta,
+Mendoza—Neuquén, Córdoba—Salta
+Luego de construir el grafo:
+• Mostrá los vecinos de Córdoba.
+• Eliminá la arista Córdoba—Rosario y mostrá el grafo actualizado.
+• Mostrá la cantidad de vértices y aristas del grafo final.
+ */
+
 public class GrafoNoDirigido {
     private static Map<String, List<String>> crearGrafo(){
         Map<String, List<String>> listaDeAdyacencia = new HashMap<>();
