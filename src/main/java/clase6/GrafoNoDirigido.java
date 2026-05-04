@@ -65,6 +65,22 @@ public class GrafoNoDirigido {
         }
     }
 
+    private static void cantidadVertices(Map<String, List<String>> lista){
+        System.out.println();
+        System.out.println("Cantidad de nodos en el grafo: " + lista.size());
+        System.out.println();
+    }
+
+    private static void cantidadAristas(Map<String, List<String>> lista){
+        System.out.println();
+        int cantidad=0;
+        for(var nodo : lista.entrySet()) {
+            cantidad = cantidad + nodo.getValue().size();
+        }
+        System.out.println("Cantidad de aristas en el grafo: "+cantidad);
+        System.out.println();
+    }
+
     public static void main(String[] args){
         var lista = crearGrafo();
         agregarNodo(lista, "Buenos Aires");
@@ -86,5 +102,7 @@ public class GrafoNoDirigido {
         vecinos(lista, "Cordoba");
         eliminarNodo(lista, "Neuquen");
         eliminarArista(lista, "Cordoba", "Buenos Aires");
+        cantidadVertices(lista);
+        cantidadAristas(lista);
     }
 }
