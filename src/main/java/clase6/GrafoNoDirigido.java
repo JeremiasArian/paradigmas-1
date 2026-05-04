@@ -20,6 +20,12 @@ public class GrafoNoDirigido {
         lista.get(nodo1).add(nodo2);
         lista.get(nodo2).add(nodo1);
     }
+    private static void mostrarGrafo(Map<String, List<String>> lista){
+        System.out.println("Mostrando grafo...");
+        for (var nodo: lista.entrySet()){
+            System.out.println(nodo.toString());
+        }
+    }
 
     public static void main(String[] args){
         var lista = crearGrafo();
