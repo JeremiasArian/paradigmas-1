@@ -11,70 +11,70 @@ public class GrafoNoDirigido {
         return listaDeAdyacencia;
     }
 
-    private static void agregarNodo(Map<String, List<String>> lista, String nodo) {
-        lista.putIfAbsent(nodo, new ArrayList<>());
+    private static void agregarNodo(Map<String, List<String>> grafo, String nodo) {
+        grafo.putIfAbsent(nodo, new ArrayList<>());
     }
 
-    private static void agregarArista(Map<String, List<String>> lista,
+    private static void agregarArista(Map<String, List<String>> grafo,
                                       String nodo1, String nodo2){
-        lista.get(nodo1).add(nodo2);
-        lista.get(nodo2).add(nodo1);
+        grafo.get(nodo1).add(nodo2);
+        grafo.get(nodo2).add(nodo1);
     }
 
-    private static void eliminarNodo(Map<String, List<String>> lista,
+    private static void eliminarNodo(Map<String, List<String>> grafo,
                                      String nodo) {
-        if(lista.containsKey(nodo)){
-            lista.values().forEach(elemento -> elemento.remove(nodo));
-            lista.remove(nodo);
+        if(grafo.containsKey(nodo)){
+            grafo.values().forEach(elemento -> elemento.remove(nodo));
+            grafo.remove(nodo);
             System.out.println("Se eliminó "+nodo+" del grafo");
-            mostrarGrafo(lista);
+            mostrarGrafo(grafo);
         } else{
             System.out.println("El grafo no tiene el nodo que queres eliminar!");
         }
 
     }
 
-    private static void eliminarArista(Map<String, List<String>> lista,
+    private static void eliminarArista(Map<String, List<String>> grafo,
                                        String nodo1, String nodo2){
         System.out.println();
-        if (!(lista.containsKey(nodo1) && lista.containsKey(nodo2))){
+        if (!(grafo.containsKey(nodo1) && grafo.containsKey(nodo2))){
             System.out.println("Uno de los nodos no se encontro (no se puede eliminar arista)!");
             return;
         }
         System.out.println("Eliminando arista entre "+nodo1+" y "+nodo2);
         System.out.println();
-        List<String> a = lista.get(nodo1);
-        List<String> b = lista.get(nodo2);
+        List<String> a = grafo.get(nodo1);
+        List<String> b = grafo.get(nodo2);
         if(a != null) a.remove(nodo2);
         if(b != null) b.remove(nodo1);
-        mostrarGrafo(lista);
+        mostrarGrafo(grafo);
     }
 
-    private static void mostrarGrafo(Map<String, List<String>> lista){
+    private static void mostrarGrafo(Map<String, List<String>> grafo){
         System.out.println("Mostrando grafo...");
-        for (var nodo: lista.entrySet()){
+        for (var nodo: grafo.entrySet()){
             System.out.println(nodo.toString());
         }
     }
 
-    private static void vecinos(Map<String, List<String>> lista,String nodo) {
-        for (var nodos: lista.entrySet()){
+    private static void vecinos(Map<String, List<String>> grafo,String nodo) {
+        for (var nodos: grafo.entrySet()){
             if(nodos.getKey().equals(nodo)){
                 System.out.println("Vecinos de "+nodo+": "+nodos.getValue());
             }
         }
     }
 
-    private static void cantidadVertices(Map<String, List<String>> lista){
+    private static void cantidadVertices(Map<String, List<String>> grafo){
         System.out.println();
-        System.out.println("Cantidad de nodos en el grafo: " + lista.size());
+        System.out.println("Cantidad de nodos en el grafo: " + grafo.size());
         System.out.println();
     }
 
-    private static void cantidadAristas(Map<String, List<String>> lista){
+    private static void cantidadAristas(Map<String, List<String>> grafo){
         System.out.println();
         int cantidad=0;
-        for(var nodo : lista.entrySet()) {
+        for(var nodo : grafo.entrySet()) {
             cantidad = cantidad + nodo.getValue().size();
         }
         System.out.println("Cantidad de aristas en el grafo: "+cantidad);
@@ -82,25 +82,25 @@ public class GrafoNoDirigido {
     }
 
     public static void main(String[] args){
-        var lista = crearGrafo();
-        agregarNodo(lista, "Buenos Aires");
-        agregarNodo(lista, "Cordoba");
-        agregarNodo(lista, "Rosario");
-        agregarNodo(lista, "Mendoza");
-        agregarNodo(lista, "Tucuman");
-        agregarNodo(lista, "Salta");
-        agregarNodo(lista, "Neuquen");
-        agregarArista(lista, "Buenos Aires", "Cordoba");
-        agregarArista(lista, "Buenos Aires", "Rosario");
-        agregarArista(lista, "Cordoba", "Rosario");
-        agregarArista(lista, "Cordoba", "Mendoza");
-        agregarArista(lista, "Cordoba", "Tucuman");
-        agregarArista(lista, "Tucuman", "Salta");
-        agregarArista(lista, "Mendoza", "Neuquen");
-        agregarArista(lista, "Cordoba", "Salta");
-        vecinos(lista, "Cordoba");
-        eliminarArista(lista, "Cordoba", "Rosario");
-        cantidadAristas(lista);
-        cantidadVertices(lista);
+        var grafo = crearGrafo();
+        agregarNodo(grafo, "Buenos Aires");
+        agregarNodo(grafo, "Cordoba");
+        agregarNodo(grafo, "Rosario");
+        agregarNodo(grafo, "Mendoza");
+        agregarNodo(grafo, "Tucuman");
+        agregarNodo(grafo, "Salta");
+        agregarNodo(grafo, "Neuquen");
+        agregarArista(grafo, "Buenos Aires", "Cordoba");
+        agregarArista(grafo, "Buenos Aires", "Rosario");
+        agregarArista(grafo, "Cordoba", "Rosario");
+        agregarArista(grafo, "Cordoba", "Mendoza");
+        agregarArista(grafo, "Cordoba", "Tucuman");
+        agregarArista(grafo, "Tucuman", "Salta");
+        agregarArista(grafo, "Mendoza", "Neuquen");
+        agregarArista(grafo, "Cordoba", "Salta");
+        vecinos(grafo, "Cordoba");
+        eliminarArista(grafo, "Cordoba", "Rosario");
+        cantidadAristas(grafo);
+        cantidadVertices(grafo);
     }
 }
