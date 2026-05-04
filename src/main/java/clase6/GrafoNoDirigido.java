@@ -20,6 +20,20 @@ public class GrafoNoDirigido {
         lista.get(nodo1).add(nodo2);
         lista.get(nodo2).add(nodo1);
     }
+
+    private static void eliminarNodo(Map<String, List<String>> lista,
+                                     String nodo) {
+        if(lista.containsKey(nodo)){
+            lista.values().forEach(elemento -> elemento.remove(nodo));
+            lista.remove(nodo);
+            System.out.println("Se eliminó "+nodo+" del grafo");
+            mostrarGrafo(lista);
+        } else{
+            System.out.println("El grafo no tiene el nodo que queres eliminar!");
+        }
+
+    }
+
     private static void mostrarGrafo(Map<String, List<String>> lista){
         System.out.println("Mostrando grafo...");
         for (var nodo: lista.entrySet()){
@@ -54,5 +68,6 @@ public class GrafoNoDirigido {
         agregarArista(lista, "Cordoba", "Salta");
         mostrarGrafo(lista);
         vecinos(lista, "Cordoba");
+        eliminarNodo(lista, "Neuquen");
     }
 }
