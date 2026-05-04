@@ -27,6 +27,14 @@ public class GrafoNoDirigido {
         }
     }
 
+    private static void vecinos(Map<String, List<String>> lista,String nodo) {
+        for (var nodos: lista.entrySet()){
+            if(nodos.getKey().equals(nodo)){
+                System.out.println("Vecinos de "+nodo+": "+nodos.getValue());
+            }
+        }
+    }
+
     public static void main(String[] args){
         var lista = crearGrafo();
         agregarNodo(lista, "Buenos Aires");
@@ -45,5 +53,6 @@ public class GrafoNoDirigido {
         agregarArista(lista, "Mendoza", "Neuquen");
         agregarArista(lista, "Cordoba", "Salta");
         mostrarGrafo(lista);
+        vecinos(lista, "Cordoba");
     }
 }
