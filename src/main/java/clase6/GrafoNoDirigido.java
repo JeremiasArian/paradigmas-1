@@ -29,5 +29,21 @@ public class GrafoNoDirigido {
 
     public static void main(String[] args){
         var lista = crearGrafo();
+        agregarNodo(lista, "Buenos Aires");
+        agregarNodo(lista, "Cordoba");
+        agregarNodo(lista, "Rosario");
+        agregarNodo(lista, "Mendoza");
+        agregarNodo(lista, "Tucuman");
+        agregarNodo(lista, "Salta");
+        agregarNodo(lista, "Neuquen");
+        agregarArista(lista, "Buenos Aires", "Cordoba");
+        agregarArista(lista, "Buenos Aires", "Rosario");
+        agregarArista(lista, "Cordoba", "Rosario");
+        agregarArista(lista, "Cordoba", "Mendoza");
+        agregarArista(lista, "Cordoba", "Tucuman");
+        agregarArista(lista, "Tucuman", "Salta");
+        agregarArista(lista, "Mendoza", "Neuquen");
+        agregarArista(lista, "Cordoba", "Salta");
+        mostrarGrafo(lista);
     }
 }
