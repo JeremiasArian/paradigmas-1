@@ -98,11 +98,9 @@ public class GrafoNoDirigido {
         agregarArista(lista, "Tucuman", "Salta");
         agregarArista(lista, "Mendoza", "Neuquen");
         agregarArista(lista, "Cordoba", "Salta");
-        mostrarGrafo(lista);
         vecinos(lista, "Cordoba");
-        eliminarNodo(lista, "Neuquen");
-        eliminarArista(lista, "Cordoba", "Buenos Aires");
-        cantidadVertices(lista);
+        eliminarArista(lista, "Cordoba", "Rosario");
         cantidadAristas(lista);
+        cantidadVertices(lista);
     }
 }
