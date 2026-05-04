@@ -34,6 +34,22 @@ public class GrafoNoDirigido {
 
     }
 
+    private static void eliminarArista(Map<String, List<String>> lista,
+                                       String nodo1, String nodo2){
+        System.out.println();
+        if (!(lista.containsKey(nodo1) && lista.containsKey(nodo2))){
+            System.out.println("Uno de los nodos no se encontro (no se puede eliminar arista)!");
+            return;
+        }
+        System.out.println("Eliminando arista entre "+nodo1+" y "+nodo2);
+        System.out.println();
+        List<String> a = lista.get(nodo1);
+        List<String> b = lista.get(nodo2);
+        if(a != null) a.remove(nodo2);
+        if(b != null) b.remove(nodo1);
+        mostrarGrafo(lista);
+    }
+
     private static void mostrarGrafo(Map<String, List<String>> lista){
         System.out.println("Mostrando grafo...");
         for (var nodo: lista.entrySet()){
@@ -69,5 +85,6 @@ public class GrafoNoDirigido {
         mostrarGrafo(lista);
         vecinos(lista, "Cordoba");
         eliminarNodo(lista, "Neuquen");
+        eliminarArista(lista, "Cordoba", "Buenos Aires");
     }
 }
